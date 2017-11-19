@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-4">
+    <form [formGroup]="retirementForm">
+      <span>*All fields are mandatory</span>
+      <br>
+      <br>
+      <div class="form-group">
+        <label for="currentAnnualIncome">Current Annual Income
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="currentAnnualIncome" formControlName="currentAnnualIncome" required>
+        <br>
+        <b>Age
+          <span> *</span>
+        </b>
+        <br>
+        <div formGroupName="age" class="flex">
+          <div class="form-group">
+            <label for="currentAge" class="smLagend">Current Age</label>
+            <input type="number" class="form-control smInput" id="currentAge" formControlName="currentAge" required>
+          </div>
+          <div class="form-group">
+            <label for="retirementAge" class="smLagend">Retirement Age</label>
+            <input type="number" class="form-control smInput" id="retirementAge" formControlName="retirementAge" required>
+          </div>
+        </div>
+        <br>
+        <label for="lifeExpectancy">Life Expectancy
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="lifeExpectancy" formControlName="lifeExpectancy" required>
+        <br>
+        <label for="currentSavings">Current Savings
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="currentSavings" formControlName="currentSavings" required>
+        <br>
+        <label for="incomeAfterRetirement">Desired Annual Income After Retirement
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="incomeAfterRetirement" formControlName="incomeAfterRetirement" required>
+        <br>
+        <b>Annual Investment Return (%)
+          <span> *</span>
+        </b>
+        <br>
+        <div formGroupName="annualInvestmentReturn" class="flex">
+          <div class="form-group">
+            <label for="preRetirementReturn" class="smLagend">Pre-retirement</label>
+            <input type="number" class="form-control smInput" id="preRetirementReturn" formControlName="preRetirementReturn" required>
+          </div>
+          <div class="form-group">
+            <label for="postRetirementReturn" class="smLagend">Post-retirement</label>
+            <input type="number" class="form-control smInput" id="postRetirementReturn" formControlName="postRetirementReturn" required>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="submitForm(retirementForm)" [disabled]="retirementForm.invalid">Calculate</button>
+    </form>
+  </div>
+</div>

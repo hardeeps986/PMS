@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="col-md-5">
+    <ul class="nav nav-tabs">
+      <li [ngClass]="activePill=='savingsGoal'?'active':''">
+        <a (click)="activePill='savingsGoal'">Savings Goal</a>
+      </li>
+      <li [ngClass]="activePill=='savingsEstimator'?'active':''">
+        <a (click)="activePill='savingsEstimator'">Savings Estimator</a>
+      </li>
+      <li [ngClass]="activePill=='time'?'active':''">
+        <a (click)="activePill='time'">Time To Achieve Goal</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4" *ngIf="activePill=='savingsGoal'">
+    <form [formGroup]="savingsForm">
+      <span>*All fields are mandatory</span>
+      <br>
+      <br>
+      <div class="form-group">
+        <label for="savingsGoal">Savings Goal
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="savingsGoal" formControlName="savingsGoal" required>
+        <br>
+        <label for="currentSavings">Current Savings
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="currentSavings" formControlName="currentSavings" required>
+        <br>
+        <label for="annualInterest">Annual Interest
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="annualInterest" formControlName="annualInterest" required>
+        <br>
+        <label for="numberOfYears">Number Of Years
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="numberOfYears" formControlName="numberOfYears" required>
+        <br>
+        <label for="compounding">Compounding
+          <span> *</span>
+        </label>
+        <select class="form-control" id="compounding" formControlName="compounding">
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Half-yearly</option>
+          <option>Yearly</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" (click)="submitForm(savingsForm)" [disabled]="savingsForm.invalid">Calculate</button>
+    </form>
+  </div>
+
+  <div class="col-md-4" *ngIf="activePill=='savingsEstimator'">
+    <form [formGroup]="savingsEstimator">
+      <span>*All fields are mandatory</span>
+      <br>
+      <br>
+      <div class="form-group">
+        <label for="currentSavings">Current Savings
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="currentSavings" formControlName="currentSavings" required>
+        <br>
+        <label for="monthlyInvestment">Monthly Investment
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="monthlyInvestment" formControlName="monthlyInvestment" required>
+        <br>
+        <label for="annualInterest">Annual Interest
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="annualInterest" formControlName="annualInterest" required>
+        <br>
+        <label for="numberOfYears">Number Of Years
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="numberOfYears" formControlName="numberOfYears" required>
+        <br>
+        <label for="compounding">Compounding
+          <span> *</span>
+        </label>
+        <select class="form-control" id="compounding" formControlName="compounding">
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Half-yearly</option>
+          <option>Yearly</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" (click)="submitForm(savingsEstimator)" [disabled]="savingsEstimator.invalid">Calculate</button>
+    </form>
+  </div>
+
+  <div class="col-md-4" *ngIf="activePill=='time'">
+    <form [formGroup]="timeEstimator">
+      <span>*All fields are mandatory</span>
+      <br>
+      <br>
+      <div class="form-group">
+        <label for="currentSavings">Current Savings
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="currentSavings" formControlName="currentSavings" required>
+        <br>
+        <label for="savingsGoal">Savings Goal
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="savingsGoal" formControlName="savingsGoal" required>
+        <br>
+        <label for="monthlyInvestment">Monthly Investment
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="monthlyInvestment" formControlName="monthlyInvestment" required>
+        <br>
+        <label for="annualInterest">Annual Interest
+          <span> *</span>
+        </label>
+        <input type="number" class="form-control" id="annualInterest" formControlName="annualInterest" required>
+        <br>
+        <label for="compounding">Compounding
+          <span> *</span>
+        </label>
+        <select class="form-control" id="compounding" formControlName="compounding">
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Half-yearly</option>
+          <option>Yearly</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" (click)="submitForm(timeEstimator)" [disabled]="timeEstimator.invalid">Calculate</button>
+    </form>
+  </div>
+</div>
